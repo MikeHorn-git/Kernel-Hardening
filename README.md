@@ -1,5 +1,5 @@
 # Kernel-Hardening
-This projects contain 4 elements :
+This project contain 4 elements :
 
 * Sysctl.conf define kernel parameter value.
 * Define parameters when starting the kernel with GRUB_CMDLINE_LINUX line in grub config.
