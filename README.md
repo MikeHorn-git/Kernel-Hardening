@@ -14,7 +14,7 @@ chmod +x ./install.sh
 sudo ./install.sh
 ```
 
-# Test on
+# Tested on
 * Arch
 * Debian
 * Fedora
