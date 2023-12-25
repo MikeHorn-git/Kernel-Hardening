@@ -28,6 +28,12 @@ GRUB=/etc/default
 MODPROBE=/etc/modprobe.d
 SYSCTL=/etc/sysctl.d
 
+if [ "$EUID" -ne 0 ]
+  then echo "[+] Please run as root"
+  exit
+fi
+
+
 echo "[+] Backup sysctl files"
 for file in /etc/sysctl.d/*; do
     if [ -f "$file" ]; then
