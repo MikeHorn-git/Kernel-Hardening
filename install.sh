@@ -56,7 +56,7 @@ cp ./blacklist.conf "$MODPROBE"/blacklist.conf
 
 if [ -f "$GRUB"/grub ]; then
     echo "[+] Backup $GRUB/grub file"
-    cp "$GRUB"grub "$GRUB"/grub.bk
+    cp "$GRUB"/grub "$GRUB"/grub.bk
     echo "[+] Copy GRUB_CMDLINE_LINUX_DEFAULT value into $GRUB/grub"
     sed -i '/GRUB_CMDLINE_LINUX_DEFAULT/d' "$GRUB"/grub
     cat ./grub.default >> "$GRUB"/grub
