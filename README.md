@@ -1,10 +1,13 @@
-# Kernel-Hardening
-This project contain 4 elements :
+# Warning
+Backup up sensitive data. Check the content of the files before proceeding.
 
-* Sysctl.conf define kernel parameter value.
-* Define parameters when starting the kernel with GRUB_CMDLINE_LINUX line in grub config.
-* Blacklist.conf disable certains unwanted kernel modules.
-* Install.sh backup and copy files in a automated script.
+# Kernel-Hardening
+This project contains 4 elements :
+
+* Sysctl.conf defines kernel parameter values.
+* Define parameters when starting the kernel with the GRUB_CMDLINE_LINUX line in grub config.
+* Blacklist.conf disables certain unwanted kernel modules.
+* Install.sh backup and copy files in an automated script.
 
 # Installation
 ```bash
