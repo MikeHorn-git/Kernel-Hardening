@@ -1,10 +1,10 @@
 # Kernel-Hardening
 This projects contain 4 elements :
 
-* Blacklist.conf disable certains modules.
 * Sysctl.conf define kernel parameter value.
-* Install.sh backup and copy files.
-* Define kernel parameters when starting the kernel with grub.
+* Define parameters when starting the kernel with GRUB_CMDLINE_LINUX line in grub config.
+* Blacklist.conf disable certains unwanted kernel modules.
+* Install.sh backup and copy files in a automated script.
 
 # Installation
 ```bash
@@ -21,5 +21,6 @@ sudo ./install.sh
 
 # Resources
 * [Anssi](https://cyber.gouv.fr/publications/recommandations-de-securite-relatives-un-systeme-gnulinux)
+* [Arch Wiki](https://wiki.archlinux.org/title/Kernel_parameters#GRUB)
 * [Kernel-Hardening-Checker](https://github.com/a13xp0p0v/kernel-hardening-checker)
 * [Madaidans](https://madaidans-insecurities.github.io/guides/linux-hardening.html#kernel)
