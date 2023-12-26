@@ -39,7 +39,7 @@ sudo ./install.sh
 **Can cause conflict with certain modules like Virtualbox or Nvidia.
 
 # Sysctl.conf
-Kernel
+## Kernel
 * dev.tty.ldisc_autoload=0                      -  Restricts loading TTY line disciplines.
 * kernel.dmesg_restrict=1                       -  Restrict access to the kernel log (dmesg).
 * kernel.kexec_load_disabled=1                  -  Disable kexec syscall.
@@ -59,7 +59,7 @@ Kernel
 * vm.mmap_rnd_compat_bits=16                    -  Increase the bits of entropy used for mmap ASLR.
 * vm.unprivileged_userfaultfd=0                 -  Restrict the userfaultfd() syscall.
 
-Network
+## Network
 * net.core.bpf_jit_harden=2                     -  Restrict the extented Berkeley Packet Filter (eBPF).
 * net.ipv4.conf.all.accept_local=0              -  Drop packets from the 127/8 external network.
 * net.ipv4.conf.all.accept_redirects=0          -  Disable ICMP redirect acceptance and sending.
@@ -89,7 +89,7 @@ Network
 * net.ipv4.tcp_syncookies=1                     -  Mitigate SYN flood attacks.
 * net.ipv6.conf.default.disable_ipv6=1          -  Disable Ipv6.
 
-File System
+## File System
 * fs.protected_fifos=2                          -  Restrict FIFOS files.
 * fs.protected_hardinks=1                       -  Restric hardlinks.
 * fs.protected_regular=2                        -  Restrict regular files.
