@@ -1,5 +1,5 @@
 # Warning
-Backup sensitive data. Check the content of the files before proceeding. Use at your own risk, manipulating kernel parameters can "break it".
+Backup sensitive data. Check the content of the files before proceeding. Use at your own risk, manipulating kernel parameters can break it.
 
 # Installation
 ```bash
@@ -8,12 +8,13 @@ cd Kernel-Hardening
 chmod +x ./install.sh
 sudo ./install.sh
 ```
+
 # Grub startup kernel parameters
 * l1tf=full,force                               - L1 Terminal Fault (l1tf) vulnerability patch. Disable Symmetric MultiThreading (SMT).*
 * page_poison=on                                - Activate buddy allocator page poisoning.
 * pti=on                                        - Force Page Table Isolation (PTI) on.
 * slab_nomerge=yes                              - Disables the merging of slabs of similar sizes.
-* slub_debug=FZP                                - Activate certain slub verification options (cache metadata consistency tests, red zoning, poisoning of objects and padding).
+* slub_debug=FZP                                - Activate certain slub verification options.
 * spec_store_bypass_disable=seccomp             - Spectrev4 (Speculative Store Bypass) countermeasures.
 * spectre_v2=on                                 - Spectrev2 (Branch Target Injection) countermeasures.
 * mds=full,nosmt                                - Use Microarchitectural Data Sampling (MDS) with SMT disabled.
@@ -35,8 +36,9 @@ sudo ./install.sh
 * nosmt=force                                   - Force disable symmetric multithreading (SMT).
 * kvm.nx_huge_pages=force                       - Mitigate instruction Translation Lookaside Buffer (iTLB) multihit.
   
-*Reduce system performance. Enable this option on a bare metal OS. For VMS, this can be disabled with l1tf=off for better performance, if the host OS is trusted and protected against lf1t vulnerability.
-**Can cause conflict with certain modules like Virtualbox or Nvidia.
+* *Reduce system performance. Enable this option on a bare metal OS. For VMS, this can be disabled with l1tf=off for better performance, if the host OS is trusted and protected against lf1t vulnerability.
+
+* **Can cause conflict with certain modules like Virtualbox or Nvidia.
 
 # Sysctl.conf
 ## Kernel
@@ -67,7 +69,7 @@ sudo ./install.sh
 * net.ipv4.conf.all.arp_filter=1                -  Restrict ARP tables.
 * net.ipv4.conf.all.arp_ignore=2                -  Restrict ARP tables.
 * net.ipv4.conf.all.drop_gratuitous_arp=1       -  Restrict ARP gratuitous.
-* net.ipv4.conf.all.route_localnet=0            -  Block routing packets that have a localhost address in source or destination.
+* net.ipv4.conf.all.route_localnet=0            -  Block routing packets that have a localhost address.
 * net.ipv4.conf.all.rp_filter=1                 -  Enable source validation of packets received from all interfaces.
 * net.ipv4.conf.all.secure_redirects=0          -  Disable ICMP redirect acceptance and sending.
 * net.ipv4.conf.all.send_redirects=0            -  Disable ICMP redirect acceptance and sending.
@@ -101,8 +103,6 @@ sudo ./install.sh
 *  Disable rare filesystems.
 *  Disable network filesystems.
 
-For detailed and more in-depth explanations, check the Resources sections.
-
 
 # Tested on
 * Arch
@@ -110,6 +110,7 @@ For detailed and more in-depth explanations, check the Resources sections.
 * Fedora
 
 # Resources
+For detailed and more in-depth explanations.
 * [Anssi](https://cyber.gouv.fr/publications/recommandations-de-securite-relatives-un-systeme-gnulinux)
 * [Kernel.org](https://www.kernel.org/doc/html/latest/admin-guide/kernel-parameters.html)
 * [Madaidans](https://madaidans-insecurities.github.io/guides/linux-hardening.html#kernel)
