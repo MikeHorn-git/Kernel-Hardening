@@ -36,9 +36,8 @@ sudo ./install.sh
 * nosmt=force                                   - Force disable symmetric multithreading (SMT).
 * kvm.nx_huge_pages=force                       - Mitigate instruction Translation Lookaside Buffer (iTLB) multihit.
   
-* *Reduce system performance. Enable this option on a bare metal OS. For VMS, this can be disabled with l1tf=off for better performance, if the host OS is trusted and protected against lf1t vulnerability.
-
-* **Can cause conflict with certain modules like Virtualbox or Nvidia.
+*Reduce system performance. Enable this option on a bare metal OS. For VMS, this can be disabled with l1tf=off for better performance, if the host OS is trusted and protected against lf1t vulnerability.      
+**Can cause conflict with certain modules like Virtualbox or Nvidia.
 
 # Sysctl.conf
 ## Kernel
@@ -106,8 +105,8 @@ sudo ./install.sh
 
 # Tested on
 * Arch
-* Debian
-* Fedora
+* Debian 12
+* Fedora 39
 
 # Resources
 For detailed and more in-depth explanations.
