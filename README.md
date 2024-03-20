@@ -1,13 +1,12 @@
 # Warning
-Backup sensitive data. Check the content of the files before proceeding. Use at your own risk, manipulating kernel parameters can break it.
+Personal files. Use it at your own risk for your own needs.
 
-# Installation
-```bash
-git clone https://github.com/MikeHorn-git/Kernel-Hardening.git
-cd Kernel-Hardening
-chmod +x ./install.sh
-sudo ./install.sh
-```
+# Content
+* Automatisation script
+* Kconfig file
+* Kernel modules blacklist config file
+* Kernel parameters config file
+* Grub parameters config value
 
 # Resources
 * [Anssi](https://cyber.gouv.fr/publications/recommandations-de-securite-relatives-un-systeme-gnulinux)
