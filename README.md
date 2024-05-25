@@ -3,8 +3,13 @@
 # Warning
 Use it at your own risk for your own needs. Read content of files before proceeding, certains features are disabled.
 
-# Compile Kernel
-The custom Kconfig file is stored in configs folder.
+# Kconfig
+Kconfig files are stored in configs folder.
+* .config : Custom Kconfig file, following best practices.
+* .config_KHC : Kconfig file, output only security related paramters
+```bash
+kernel-hardening-checker -g X86_64 | tee .config_KHC
+```
 
 # Blacklist Modules (+100)
 * Driver (ath94, b43, eth1394 ...)
@@ -16,7 +21,6 @@ The custom Kconfig file is stored in configs folder.
 
 These kernel modules blacklisted are present in blacklist.conf.
 
-
 # Kernel Parameters (+50)
 * FileSystem
 * Kernel
@@ -24,12 +28,17 @@ These kernel modules blacklisted are present in blacklist.conf.
 
 These kernel parameters are present in sysctl.conf
 
-
 # Installation Script
 Backup your files before running.
 * Add GRUB entries
 * Copy blacklist.conf
 * Copy sysctl.conf
+
+# Compile Kernel
+TBD
+
+# Kernel Fuzzing
+TBD
 
 # Credits
 * [Anssi](https://cyber.gouv.fr/publications/recommandations-de-securite-relatives-un-systeme-gnulinux) [Guide]
