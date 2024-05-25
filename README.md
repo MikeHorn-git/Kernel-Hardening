@@ -14,8 +14,6 @@ The custom Kconfig file is stored in configs folder.
 * Network (Bluetooth, gps, iwlwifi ...)
 * Storage (cdrom, floppy, usb storage,  ...)
 
-Using install /bin/true is better than blacklist keyword. He prevent the module to be loaded by dependencies for example.
-/bin/true is better than bin/false because avoid non-zero return and produce a possible error log.
 These kernel modules blacklisted are present in blacklist.conf.
 
 
@@ -25,6 +23,7 @@ These kernel modules blacklisted are present in blacklist.conf.
 * Network
 
 Modify Kernel parameters directly. Without the need to build the kernel.
+These kernel parameters are present in sysctl.conf
 
 
 # Installation Script
