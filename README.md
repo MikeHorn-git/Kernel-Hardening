@@ -22,7 +22,6 @@ These kernel modules blacklisted are present in blacklist.conf.
 * Kernel
 * Network
 
-Modify Kernel parameters directly. Without the need to build the kernel.
 These kernel parameters are present in sysctl.conf
 
 
