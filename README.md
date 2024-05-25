@@ -1,18 +1,45 @@
+![logo](https://github.com/MikeHorn-git/Kernel-Hardening/assets/123373126/e4fca8a7-782a-42a7-863e-431a94660313)
+
 # Warning
-Personal files. Use it at your own risk for your own needs.
+Use it at your own risk for your own needs. Read content of files before proceeding, certains features are disabled.
 
-# Content
-* Automatisation script
-* Kconfig file
-* Kernel modules blacklist config file
-* Kernel parameters config file
-* Grub parameters config value
+# Compile Kernel
+The custom Kconfig file is stored in configs folder.
 
-# Resources
-* [Anssi](https://cyber.gouv.fr/publications/recommandations-de-securite-relatives-un-systeme-gnulinux)
-* [ClipOS](https://docs.clip-os.org/clipos/kernel.html#configuration)
-* [Kernel.org](https://www.kernel.org/doc/html/latest/admin-guide/kernel-parameters.html)
-* [Kernel-Hardening-Checker](https://github.com/a13xp0p0v/kernel-hardening-checker)
-* [Kernel_Self_Protection_Project](https://kernsec.org/wiki/index.php/Kernel_Self_Protection_Project/Recommended_Settings)
-* [Madaidans](https://madaidans-insecurities.github.io/guides/linux-hardening.html#kernel)
-* [spectre-meltdown-checker](https://github.com/speed47/spectre-meltdown-checker)
+# Blacklist Modules (+100)
+* Driver (ath94, b43, eth1394 ...)
+* Filesystem (exfat, ntfs, squashfs ...)
+* Graphics (amdgpu, nvidia, radeon ...)
+* Input devices (garmin_gps, lp, uinput ...)
+* Network (Bluetooth, gps, iwlwifi ...)
+* Storage (cdrom, floppy, usb storage,  ...)
+
+Using install /bin/true is better than blacklist keyword. He prevent the module to be loaded by dependencies for example.
+/bin/true is better than bin/false because avoid non-zero return and produce a possible error log.
+These kernel modules blacklisted are present in blacklist.conf.
+
+
+# Kernel Parameters (+50)
+* FileSystem
+* Kernel
+* Network
+
+Modify Kernel parameters directly. Without the need to build the kernel.
+
+
+# Installation Script
+Backup your files before running.
+* Add GRUB entries
+* Copy blacklist.conf
+* Copy sysctl.conf
+
+# Credits
+* [Anssi](https://cyber.gouv.fr/publications/recommandations-de-securite-relatives-un-systeme-gnulinux) [Guide]
+* [ClipOS](https://docs.clip-os.org/clipos/kernel.html#configuration) [Guide]
+* [Kernel.org](https://www.kernel.org/doc/html/latest/admin-guide/kernel-parameters.html) [Guide]
+* [Kernel-Hardening-Checker](https://github.com/a13xp0p0v/kernel-hardening-checker) [Tool]
+* [Kernel_Self_Protection_Project](https://kernsec.org/wiki/index.php/Kernel_Self_Protection_Project/Recommended_Settings) [Guide]
+* [Kicksecure](https://github.com/Kicksecure) [Guide]
+* [lwn.net](https://lwn.net/) [Logo]
+* [Madaidans](https://madaidans-insecurities.github.io/guides/linux-hardening.html#kernel) [Guide]
+* [spectre-meltdown-checker](https://github.com/speed47/spectre-meltdown-checker) [Tool]
