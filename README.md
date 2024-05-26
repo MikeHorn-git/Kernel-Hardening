@@ -18,7 +18,11 @@ This project aim to automating, make easier and help people to harden their kern
 
 # Kconfig
 Kconfig files are stored in configs folder.
-* .config : Custom Kconfig file, following best practices.
+* .config : Custom Kconfig file, following best practices. Build with tui based kconfig editor provided by Linux Kernel source code
+```bash
+# Inside the Linux kernel source code root path
+make menuconfig
+```
 * .Kernel-Hardening-Checker : Kconfig file from kernel-hardening-checker
 ```bash
 kernel-hardening-checker -g X86_64 | tee .Kernel-Hardening-Checker
