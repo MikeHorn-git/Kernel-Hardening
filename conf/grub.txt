@@ -1,0 +1,26 @@
+debugfs=off                       # Disables the debug filesystem.
+init_on_alloc=1                   # Ensures memory is initialized to zero on allocation.
+init_on_free=1                    # Ensures memory is initialized to zero on freeing.
+kvm.nx_huge_pages=force           # Forces the use of non-executable huge pages in Kernel-based Virtual Machine (KVM).
+l1tf=full,force                   # Enables full mitigation of the L1 Terminal Fault (L1TF) vulnerability.
+lockdown=confidentiality          # Enables the Linux kernel lockdown mode in confidentiality mode.
+loglevel=0                        # Sets the kernel log level to 0 (only emergency messages).
+mce=0                             # Disables Machine Check Exception (MCE) handling.
+mds=full,nosmt                    # Enables full mitigation of the Microarchitectural Data Sampling (MDS) vulnerability and disables SMT.
+module.sig_enforce=1              # Enforces module signature verification.
+nosmt=force                       # Forces the disabling of simultaneous multithreading (SMT).
+oops=panic                        # Configures the system to panic on kernel oops.
+page_alloc.shuffle=1              # Enables shuffling of page allocator freelists.
+page_poison=on                    # Enables poisoning of freed pages to catch use-after-free bugs.
+pti=on                            # Enables Page Table Isolation (PTI) to mitigate the Meltdown vulnerability.
+quiet                             # Reduces the amount of kernel log messages output during boot.
+randomize_kstack_offset=on        # Randomizes the kernel stack offset at each system call.
+rng_core.default_quality=500      # Sets the default quality of the random number generator to 500, affecting the entropy estimation.
+slab_nomerge=yes                  # Prevents the merging of slab caches.
+slub_debug=FZP                    # Enables debugging options for the SLUB allocator: F (free), Z (zeroing of objects), and P (poisoning of objects).
+spec_store_bypass_disable=on      # Disables speculative store bypass to mitigate certain side-channel attacks.
+spec_store_bypass_disable=seccomp # Disables speculative store bypass but allows seccomp to selectively enable it for certain processes.
+spectre_v2=on                     # Enables mitigations for the Spectre variant 2 vulnerability.
+tsx=off                           # Disables Transactional Synchronization Extensions (TSX).
+tsx_async_abort=full,nosmt        # Enables full mitigation for TSX Asynchronous Abort (TAA) vulnerability and disables SMT.
+vsyscall=none                     # Disables vsyscalls.
