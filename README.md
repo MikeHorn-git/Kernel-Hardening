@@ -31,7 +31,7 @@ make menuconfig
 Kconfig file from kernel-hardening-checker.
 Generate with :
 ```bash
-# Take your target architecture
+# Take your targeted architecture
 kernel-hardening-checker -g X86_64 | tee .Kernel-Hardening-Checker
 ```
 These Kconfig files are sotred in Kconfigs/
@@ -95,7 +95,21 @@ chmod +x build.sh
 It's higlhy recommended to run oldconfig when the kernel source is newer than the .config file.
 
 # Kernel Installation
-TBD
+```bash
+# Change to your version
+KVERSION=6.9.1
+sudo cp arch/x86/boot/bzImage /boot/vmlinuz-$KVERSION
+sudo make modules_install
+
+# Create initramfs image (choose one based on your distribution)
+sudo dracut --kver 6.9.1 /boot/initramfs-$KVERSION.img
+sudo mkinitcpio -k 6.9.1 -g /boot/initramfs-$KVERSION.img
+sudo update-initramfs -c -k $KVERSION
+
+# Update GRUB (choose one based on your distribution)
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo update-grub
+```
 
 # Security Benchmarks
 Kernel-Hardening-Checker
