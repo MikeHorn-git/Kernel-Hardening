@@ -19,16 +19,21 @@ Use it at your own risk for your own needs. Read content of files before proceed
 This project aim to automating, make easier and help people to harden their kernel. This can be used for harden their OS or to be use for kernel-fuzzing and security research about linux Kernel.
 
 # Kconfig
-Kconfig files are stored in configs folder.
-.config : Custom Kconfig file, following best practices. Build with tui based kconfig editor provided by Linux Kernel source code
+.config
+My custom Kconfig file, following best practices.
+Build your kconfig file with tui based kconfig editor provided by Linux Kernel source code :
 ```bash
 # Inside the Linux kernel source code root path
 make menuconfig
 ```
-.Kernel-Hardening-Checker : Kconfig file from kernel-hardening-checker
+.Kernel-Hardening-Checker
+Kconfig file from kernel-hardening-checker.
+Generate with :
 ```bash
+# Take your target architecture
 kernel-hardening-checker -g X86_64 | tee .Kernel-Hardening-Checker
 ```
+These Kconfig files are sotred in Kconfigs/
 
 # Blacklist Modules (+100)
 * Driver
@@ -38,7 +43,7 @@ kernel-hardening-checker -g X86_64 | tee .Kernel-Hardening-Checker
 * Network
 * Storage
 
-These kernel modules blacklisted are present in conf/blacklist.conf.
+These kernel modules blacklisted are stored in conf/blacklist.conf
 
 # GRUB Parameters (25)
 * Debugging and Diagnostics
@@ -46,7 +51,7 @@ These kernel modules blacklisted are present in conf/blacklist.conf.
 * Security features
 * Vulnerability mitigation
 
-These GRUB paramaters are present in conf/grub.txt
+These GRUB paramaters are stored in conf/grub.txt
 
 # Kernel Parameters (+50)
 * FileSystem
