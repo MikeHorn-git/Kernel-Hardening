@@ -3,21 +3,33 @@
 # Warning
 Use it at your own risk for your own needs. Read content of files before proceeding, certains features are disabled.
 
+# Table of contents
+* [Description](https://github.com/MikeHorn-git/Kernel-Hardening#description)
+* [Kconfig](https://github.com/MikeHorn-git/Kernel-Hardening#kconfig)
+* [Blacklist Modules](https://github.com/MikeHorn-git/Kernel-Hardening#blacklist-modules-100)
+* [Pros](https://github.com/MikeHorn-git/arch-osint#%EF%B8%8F-pros)
+* [Tools](https://github.com/MikeHorn-git/arch-osint#%EF%B8%8F-100-tools)
+* [Resources](https://github.com/MikeHorn-git/arch-osint#-resources)
+* [Features](https://github.com/MikeHorn-git/arch-osint#-miscellaneous-features)
+
+# Description
+TBD
+
 # Kconfig
 Kconfig files are stored in configs folder.
 * .config : Custom Kconfig file, following best practices.
-* .config_KHC : Kconfig file, output only security related paramters
+* .Kernel-Hardening-Checker : Kconfig file from kernel-hardening-checker
 ```bash
-kernel-hardening-checker -g X86_64 | tee .config_KHC
+kernel-hardening-checker -g X86_64 | tee .Kernel-Hardening-Checker
 ```
 
 # Blacklist Modules (+100)
-* Driver (ath94, b43, eth1394 ...)
-* Filesystem (exfat, ntfs, squashfs ...)
-* Graphics (amdgpu, nvidia, radeon ...)
-* Input devices (garmin_gps, lp, uinput ...)
-* Network (Bluetooth, gps, iwlwifi ...)
-* Storage (cdrom, floppy, usb storage,  ...)
+* Driver
+* Filesystem
+* Graphics
+* Input devices
+* Network
+* Storage
 
 These kernel modules blacklisted are present in blacklist.conf.
 
@@ -30,12 +42,34 @@ These kernel parameters are present in sysctl.conf
 
 # Installation Script
 Backup your files before running.
+```bash
+git clone https://github.com/MikeHorn-git/Kernel-Hardening.git
+cd Kernel-Hardening/scripts
+chmod +x install.sh
+./install.sh
+```
 * Add GRUB entries
 * Copy blacklist.conf
 * Copy sysctl.conf
 
-# Compile Kernel
-TBD
+# Compile Kernel yourself
+```bash
+wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.9.1.tar.xz
+tar -xf linux-6.9.1.tar.xz
+cd linux-6.9.1
+wget https://raw.githubusercontent.com/MikeHorn-git/Kernel-Hardening/main/Kconfigs/.config
+wget https://raw.githubusercontent.com/MikeHorn-git/Kernel-Hardening/main/scripts/build.sh
+chmod +x build.sh
+./build.sh
+```
+* All [Clean, Oldconfig, Build]
+* Build
+* Clean : mrproper & clean
+* Config : Create default X86-64 .config
+* Configbuild
+* Oldconfig : 
+* Oldconfigbuild
+* Rebuild : Clean and Build
 
 # Kernel Fuzzing
 TBD
