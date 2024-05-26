@@ -7,13 +7,14 @@ Use it at your own risk for your own needs. Read content of files before proceed
 * [Description](https://github.com/MikeHorn-git/Kernel-Hardening#description)
 * [Kconfig](https://github.com/MikeHorn-git/Kernel-Hardening#kconfig)
 * [Blacklist Modules](https://github.com/MikeHorn-git/Kernel-Hardening#blacklist-modules-100)
-* [Pros](https://github.com/MikeHorn-git/arch-osint#%EF%B8%8F-pros)
-* [Tools](https://github.com/MikeHorn-git/arch-osint#%EF%B8%8F-100-tools)
-* [Resources](https://github.com/MikeHorn-git/arch-osint#-resources)
-* [Features](https://github.com/MikeHorn-git/arch-osint#-miscellaneous-features)
+* [Kernel Parameters](https://github.com/MikeHorn-git/Kernel-Hardening#kernel-parameters-50)
+* [Installation Script](https://github.com/MikeHorn-git/Kernel-Hardening#installation-script)
+* [Compile Kernel yourself](https://github.com/MikeHorn-git/Kernel-Hardening#compile-kernel-yourself)
+* [Kernel Fuzzing](https://github.com/MikeHorn-git/Kernel-Hardening#kernel-fuzzing)
+* [Credits](https://github.com/MikeHorn-git/Kernel-Hardening#credits)
 
 # Description
-TBD
+This project aim to automating, make easier and help people to harden their kernel. This can be used for harden their OS or to be use for kernel-fuzzing and security research about linux Kernel.
 
 # Kconfig
 Kconfig files are stored in configs folder.
@@ -62,14 +63,16 @@ wget https://raw.githubusercontent.com/MikeHorn-git/Kernel-Hardening/main/script
 chmod +x build.sh
 ./build.sh
 ```
-* All [Clean, Oldconfig, Build]
+* All [Clean | Oldconfig | Build]
 * Build
 * Clean : mrproper & clean
-* Config : Create default X86-64 .config
+* Config : default X86-64 .config
 * Configbuild
-* Oldconfig : 
+* Oldconfig
 * Oldconfigbuild
 * Rebuild : Clean and Build
+
+It's higlhy recommended to run oldconfig when the kernel source is newer than the .config file.
 
 # Kernel Fuzzing
 TBD
@@ -81,6 +84,7 @@ TBD
 * [Kernel-Hardening-Checker](https://github.com/a13xp0p0v/kernel-hardening-checker) [Tool]
 * [Kernel_Self_Protection_Project](https://kernsec.org/wiki/index.php/Kernel_Self_Protection_Project/Recommended_Settings) [Guide]
 * [Kicksecure](https://github.com/Kicksecure) [Guide]
+* [Linux-Hardened](https://github.com/anthraxx/linux-hardened) [Implementation]
 * [lwn.net](https://lwn.net/) [Logo]
 * [Madaidans](https://madaidans-insecurities.github.io/guides/linux-hardening.html#kernel) [Guide]
 * [spectre-meltdown-checker](https://github.com/speed47/spectre-meltdown-checker) [Tool]
