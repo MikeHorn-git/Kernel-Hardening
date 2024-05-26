@@ -7,10 +7,11 @@ Use it at your own risk for your own needs. Read content of files before proceed
 * [Description](https://github.com/MikeHorn-git/Kernel-Hardening#description)
 * [Kconfig](https://github.com/MikeHorn-git/Kernel-Hardening#kconfig)
 * [Blacklist Modules](https://github.com/MikeHorn-git/Kernel-Hardening#blacklist-modules-100)
-* [GUB Parameters](https://github.com/MikeHorn-git/Kernel-Hardening#grub-parameters)
+* [GUB Parameters](https://github.com/MikeHorn-git/Kernel-Hardening#grub-parameters-25)
 * [Kernel Parameters](https://github.com/MikeHorn-git/Kernel-Hardening#kernel-parameters-50)
 * [Installation Script](https://github.com/MikeHorn-git/Kernel-Hardening#installation-script)
 * [Compile Kernel yourself](https://github.com/MikeHorn-git/Kernel-Hardening#compile-kernel-yourself)
+* [Kernel Installation](https://github.com/MikeHorn-git/Kernel-Hardening#kernel-installation)
 * [Security Benchmarks](https://github.com/MikeHorn-git/Kernel-Hardening#security-benchmarks)
 * [Kernel Fuzzing](https://github.com/MikeHorn-git/Kernel-Hardening#kernel-fuzzing)
 * [Credits](https://github.com/MikeHorn-git/Kernel-Hardening#credits)
@@ -101,6 +102,11 @@ Kernel-Hardening-Checker
 ```bash
 # Take the config file for your linux distros
 ./bin/kernel-hardening-checker -c kernel_hardening_checker/config_files/distros/Archlinux-hardened.config -l /proc/cmdline -s kernel_hardening_checker/config_files/distros/example_sysctls.txt
+```
+Spectre-meltdown-checker
+```bash
+# [Bonus] For a more completed approach for linux system hardening
+sudo ./spectre-meltdown-checker.sh
 ```
 
 # Kernel Fuzzing
