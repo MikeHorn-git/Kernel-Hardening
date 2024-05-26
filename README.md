@@ -38,6 +38,8 @@ kernel-hardening-checker -g X86_64 | tee .Kernel-Hardening-Checker
 
 These kernel modules blacklisted are present in blacklist.conf.
 
+# GRUB Parameters
+
 # Kernel Parameters (+50)
 * FileSystem
 * Kernel
@@ -77,6 +79,11 @@ chmod +x build.sh
 * Rebuild : Clean and Build
 
 It's higlhy recommended to run oldconfig when the kernel source is newer than the .config file.
+
+# Installation
+TBD
+
+# Security Benchmark
 
 # Kernel Fuzzing
 TBD
