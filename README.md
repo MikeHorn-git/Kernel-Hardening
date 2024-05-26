@@ -11,13 +11,15 @@ Use it at your own risk for your own needs. Read content of files before proceed
 * [Kernel Parameters](https://github.com/MikeHorn-git/Kernel-Hardening#kernel-parameters-50)
 * [Installation Script](https://github.com/MikeHorn-git/Kernel-Hardening#installation-script)
 * [Compile Kernel yourself](https://github.com/MikeHorn-git/Kernel-Hardening#compile-kernel-yourself)
+* [Test](https://github.com/MikeHorn-git/Kernel-Hardening#compile-kernel-yourself)
 * [Kernel Installation](https://github.com/MikeHorn-git/Kernel-Hardening#kernel-installation)
 * [Security Benchmarks](https://github.com/MikeHorn-git/Kernel-Hardening#security-benchmarks)
 * [Kernel Fuzzing](https://github.com/MikeHorn-git/Kernel-Hardening#kernel-fuzzing)
 * [Credits](https://github.com/MikeHorn-git/Kernel-Hardening#credits)
 
 # Description
-This project aim to automating, make easier and help people to harden their kernel. This can be used for harden their OS or to be use for kernel-fuzzing and security research about linux Kernel.
+Configure, build, install, benchmark, tweak and fuzzing the Linux Kernel with a secure approach.
+This can be used for harden your OS or for Linux Kernel security research.
 
 # Kconfig
 .config
@@ -94,21 +96,24 @@ chmod +x build.sh
 
 It's higlhy recommended to run oldconfig when the kernel source is newer than the .config file.
 
+# Test
+TBD
+
 # Kernel Installation
 ```bash
 # Change to your version
 KVERSION=6.9.1
-sudo cp arch/x86/boot/bzImage /boot/vmlinuz-$KVERSION
+sudo cp arch/x86/boot/bzImage /boot/vmlinuz-"$KVERSION"
+# Install modules
 sudo make modules_install
 
 # Create initramfs image (choose one based on your distribution)
-sudo dracut --kver 6.9.1 /boot/initramfs-$KVERSION.img
-sudo mkinitcpio -k 6.9.1 -g /boot/initramfs-$KVERSION.img
-sudo update-initramfs -c -k $KVERSION
+sudo dracut --kver 6.9.1 /boot/initramfs-"$KVERSION".img
+sudo mkinitcpio -k 6.9.1 -g /boot/initramfs-"$KVERSION".img
+sudo update-initramfs -c -k "$KVERSION"
 
 # Update GRUB (choose one based on your distribution)
 sudo grub-mkconfig -o /boot/grub/grub.cfg
-sudo update-grub
 ```
 
 # Security Benchmarks
