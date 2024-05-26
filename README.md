@@ -7,9 +7,11 @@ Use it at your own risk for your own needs. Read content of files before proceed
 * [Description](https://github.com/MikeHorn-git/Kernel-Hardening#description)
 * [Kconfig](https://github.com/MikeHorn-git/Kernel-Hardening#kconfig)
 * [Blacklist Modules](https://github.com/MikeHorn-git/Kernel-Hardening#blacklist-modules-100)
+* [GUB Parameters](https://github.com/MikeHorn-git/Kernel-Hardening#grub-parameters)
 * [Kernel Parameters](https://github.com/MikeHorn-git/Kernel-Hardening#kernel-parameters-50)
 * [Installation Script](https://github.com/MikeHorn-git/Kernel-Hardening#installation-script)
 * [Compile Kernel yourself](https://github.com/MikeHorn-git/Kernel-Hardening#compile-kernel-yourself)
+* [Security Benchmarks](https://github.com/MikeHorn-git/Kernel-Hardening#security-benchmarks)
 * [Kernel Fuzzing](https://github.com/MikeHorn-git/Kernel-Hardening#kernel-fuzzing)
 * [Credits](https://github.com/MikeHorn-git/Kernel-Hardening#credits)
 
@@ -18,12 +20,12 @@ This project aim to automating, make easier and help people to harden their kern
 
 # Kconfig
 Kconfig files are stored in configs folder.
-* .config : Custom Kconfig file, following best practices. Build with tui based kconfig editor provided by Linux Kernel source code
+.config : Custom Kconfig file, following best practices. Build with tui based kconfig editor provided by Linux Kernel source code
 ```bash
 # Inside the Linux kernel source code root path
 make menuconfig
 ```
-* .Kernel-Hardening-Checker : Kconfig file from kernel-hardening-checker
+.Kernel-Hardening-Checker : Kconfig file from kernel-hardening-checker
 ```bash
 kernel-hardening-checker -g X86_64 | tee .Kernel-Hardening-Checker
 ```
@@ -36,20 +38,26 @@ kernel-hardening-checker -g X86_64 | tee .Kernel-Hardening-Checker
 * Network
 * Storage
 
-These kernel modules blacklisted are present in blacklist.conf.
+These kernel modules blacklisted are present in conf/blacklist.conf.
 
-# GRUB Parameters
+# GRUB Parameters (25)
+* Debugging and Diagnostics
+* Randomness
+* Security features
+* Vulnerability mitigation
+
+These GRUB paramaters are present in conf/grub.txt
 
 # Kernel Parameters (+50)
 * FileSystem
 * Kernel
 * Network
 
-These kernel parameters are present in sysctl.conf
+These kernel parameters are present in conf/sysctl.conf
 
 # Installation Script
-Backup your files before running.
 ```bash
+# Backup your files before running
 git clone https://github.com/MikeHorn-git/Kernel-Hardening.git
 cd Kernel-Hardening/scripts
 chmod +x install.sh
@@ -80,10 +88,15 @@ chmod +x build.sh
 
 It's higlhy recommended to run oldconfig when the kernel source is newer than the .config file.
 
-# Installation
+# Kernel Installation
 TBD
 
-# Security Benchmark
+# Security Benchmarks
+Kernel-Hardening-Checker
+```bash
+# Take the config file for your linux distros
+./bin/kernel-hardening-checker -c kernel_hardening_checker/config_files/distros/Archlinux-hardened.config -l /proc/cmdline -s kernel_hardening_checker/config_files/distros/example_sysctls.txt
+```
 
 # Kernel Fuzzing
 TBD
