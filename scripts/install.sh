@@ -44,7 +44,7 @@ for file in /etc/sysctl.d/*; do
 done
 
 echo "[+] Copy sysctl.conf to $SYSCTL"
-cp ./sysctl.conf "$SYSCTL"/sysctl.conf
+cp ../conf/sysctl.conf "$SYSCTL"/sysctl.conf
 
 echo "[+] Backup modprobe files"
 for file in /etc/modprobe.d/*; do
@@ -54,7 +54,7 @@ for file in /etc/modprobe.d/*; do
 done
 
 echo "[+] Copy blacklist.conf to $MODPROBE"
-cp ./blacklist.conf "$MODPROBE"/blacklist.conf
+cp ../conf/blacklist.conf "$MODPROBE"/blacklist.conf
 
 if [ -f "$GRUB"/grub ]; then
 	echo "[+] Backup $GRUB/grub file"

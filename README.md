@@ -36,7 +36,7 @@ Generate with :
 # Take your targeted architecture
 kernel-hardening-checker -g X86_64 | tee .Kernel-Hardening-Checker
 ```
-These Kconfig files are sotred in Kconfigs/
+These Kconfig files are stored in Kconfigs/
 
 # Blacklist Modules (+100)
 * Driver
