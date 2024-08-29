@@ -57,16 +57,29 @@ echo "[+] Copy blacklist.conf to $MODPROBE"
 cp ../conf/blacklist.conf "$MODPROBE"/blacklist.conf
 
 if [ -f "$GRUB"/grub ]; then
-	echo "[+] Backup $GRUB/grub file"
-	cp "$GRUB"/grub "$GRUB"/grub.bk
-	echo "[+] Copy GRUB_CMDLINE_LINUX_DEFAULT value into $GRUB/grub"
-	sed -i '/GRUB_CMDLINE_LINUX_DEFAULT/d' "$GRUB"/grub
-	sed -i '/GRUB_CMDLINE_LINUX/d' "$GRUB"/grub
-	{
-		echo ""
-		echo "#Kernel-Hardening configuration"
-		echo "GRUB_CMDLINE_LINUX=\"l1tf=full,force page_poison=on pti=on slab_nomerge=yes slub_debug=FZP spec_store_bypass_disable=seccomp spectre_v2=on mds=full,nosmt mce=0 page_alloc.shuffle=1 rng_core.default_quality=500 init_on_alloc=1 init_on_free=1 randomize_kstack_offset=on vsyscall=none debugfs=off oops=panic module.sig_enforce=1 lockdown=confidentiality quiet loglevel=0 spec_store_bypass_disable=on tsx=off tsx_async_abort=full,nosmt nosmt=force kvm.nx_huge_pages=force\""
-	} >>"$GRUB"/grub
+    echo "[+] Backup $GRUB/grub file"
+    cp "$GRUB"/grub "$GRUB"/grub.bk
+
+    current_cmdline=$(grep "^GRUB_CMDLINE_LINUX=" "$GRUB"/grub | sed 's/GRUB_CMDLINE_LINUX=//' | tr -d '"')
+
+    new_cmdline="l1tf=full,force page_poison=on pti=on slab_nomerge=yes slub_debug=FZP spec_store_bypass_disable=seccomp spectre_v2=on mds=full,nosmt mce=0 page_alloc.shuffle=1 rng_core.default_quality=500 init_on_alloc=1 init_on_free=1 randomize_kstack_offset=on vsyscall=none debugfs=off oops=panic module.sig_enforce=1 lockdown=confidentiality quiet loglevel=0 spec_store_bypass_disable=on tsx=off tsx_async_abort=full,nosmt nosmt=force kvm.nx_huge_pages=force"
+
+    if [ -z "$current_cmdline" ]; then
+        combined_cmdline="$new_cmdline"
+    else
+        combined_cmdline="$current_cmdline $new_cmdline"
+    fi
+
+    sed -i '/GRUB_CMDLINE_LINUX_DEFAULT/d' "$GRUB"/grub
+    sed -i '/GRUB_CMDLINE_LINUX/d' "$GRUB"/grub
+
+    {
+        echo ""
+        echo "#Kernel-Hardening configuration"
+        echo "GRUB_CMDLINE_LINUX=\"$combined_cmdline\""
+    } >>"$GRUB"/grub
+
+    echo "[+] GRUB_CMDLINE_LINUX value updated in $GRUB/grub"
 else
-	echo "[-] Error, grub default file not found"
+    echo "[-] Error, grub default file not found"
 fi
