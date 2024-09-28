@@ -7,7 +7,7 @@ Use it at your own risk for your own needs. Read content of files before proceed
 * [Description](https://github.com/MikeHorn-git/Kernel-Hardening#description)
 * [Kconfig](https://github.com/MikeHorn-git/Kernel-Hardening#kconfig)
 * [Blacklist Modules](https://github.com/MikeHorn-git/Kernel-Hardening#blacklist-modules-100)
-* [GUB Parameters](https://github.com/MikeHorn-git/Kernel-Hardening#grub-parameters-25)
+* [GRUB Parameters](https://github.com/MikeHorn-git/Kernel-Hardening#grub-parameters-25)
 * [Kernel Parameters](https://github.com/MikeHorn-git/Kernel-Hardening#kernel-parameters-50)
 * [Installation Script](https://github.com/MikeHorn-git/Kernel-Hardening#installation-script)
 * [Compile Kernel yourself](https://github.com/MikeHorn-git/Kernel-Hardening#compile-kernel-yourself)
