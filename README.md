@@ -1,10 +1,11 @@
+# Kernel-Hardening
+
+> [!IMPORTANT]
+> Read content of files before proceeding, certains features are disabled.
+
 ![logo](https://github.com/MikeHorn-git/Kernel-Hardening/assets/123373126/e4fca8a7-782a-42a7-863e-431a94660313)
 
-# Warning
-
-Use it at your own risk for your own needs. Read content of files before proceeding, certains features are disabled.
-
-# Table of contents
+## Table of contents
 
 * [Description](https://github.com/MikeHorn-git/Kernel-Hardening#description)
 * [Blacklist Modules](https://github.com/MikeHorn-git/Kernel-Hardening#blacklist-modules-100)
@@ -17,11 +18,11 @@ Use it at your own risk for your own needs. Read content of files before proceed
 * [Security Audit](https://github.com/MikeHorn-git/Kernel-Hardening#security-audit)
 * [Resources](https://github.com/MikeHorn-git/Kernel-Hardening#resources)
 
-# Description
+## Description
 
 Kernel kconfigs files with hardening in mind.
 
-# Blacklist Modules (+100)
+## Blacklist Modules (+100)
 
 * Driver
 * Filesystem
@@ -32,7 +33,7 @@ Kernel kconfigs files with hardening in mind.
 
 These kernel modules blacklisted are stored in conf/blacklist.conf
 
-# GRUB Parameters (25)
+## GRUB Parameters (25)
 
 * Debugging and Diagnostics
 * Randomness
@@ -41,7 +42,7 @@ These kernel modules blacklisted are stored in conf/blacklist.conf
 
 These GRUB paramaters are stored in conf/grub.txt
 
-# Kernel Parameters (+50)
+## Kernel Parameters (+50)
 
 * FileSystem
 * Kernel
@@ -49,7 +50,7 @@ These GRUB paramaters are stored in conf/grub.txt
 
 These kernel parameters are present in conf/sysctl.conf
 
-# Installation Script
+## Installation Script
 
 * Add GRUB entries
 * Copy blacklist.conf
@@ -63,7 +64,7 @@ chmod +x install.sh
 ./install.sh
 ```
 
-# Kconfigs
+## Kconfigs
 
 ```bash
 kconfigs
@@ -74,7 +75,7 @@ kconfigs
     └── config
 ```
 
-## Fragment
+### Fragment
 
 Kernel-hardening-checker tool that generates a Kconfig fragment with the security hardening options for the selected microarchitecture following the [README](https://github.com/a13xp0p0v/kernel-hardening-checker#generating-a-kconfig-fragment-with-the-security-hardening-options)
 
@@ -82,19 +83,19 @@ Kernel-hardening-checker tool that generates a Kconfig fragment with the securit
 kernel-hardening-checker -g X86_64 > fragment-X86_64
 ```
 
-## Gentoo
+### Gentoo
 
 Kernel sources lightly patched by [Gentoo kernel team](https://packages.gentoo.org/packages/sys-kernel/gentoo-sources).
 
-## Vanilla
+### Vanilla
 
 Official kernel sources released [here](https://www.kernel.org/).
 
-# Compile Kernel
+## Compile Kernel
 
-## Gentoo
+### Gentoo
 
-### Prepare
+#### Prepare
 
 ```bash
 # Install gentoo kernel
@@ -110,7 +111,7 @@ wget https://raw.githubusercontent.com/MikeHorn-git/Kernel-Hardening/main/kconfi
 mv config .config
 ```
 
-### Modify
+#### Modify
 
 When the kernel source is newer than the .config file.
 
@@ -124,18 +125,18 @@ To manually modify config.
 sudo make nconfig
 ```
 
-### Compile
+#### Compile
 
 ```bash
 # Compile & Install
-sudo make -j$(nproc) 
+sudo make -j$(nproc)
 sudo make modules_install
 sudo make install
 ```
 
-## Arch
+### Arch
 
-### Prepare
+#### Prepare
 
 ```bash
 export KVERSION=6.13.6
@@ -146,7 +147,7 @@ wget https://raw.githubusercontent.com/MikeHorn-git/Kernel-Hardening/main/kconfi
 mv config .config
 ```
 
-### Modify
+#### Modify
 
 When the kernel source is newer than the .config file.
 
@@ -160,7 +161,7 @@ To manually modify config.
 sudo make nconfig
 ```
 
-### Compile
+#### Compile
 
 ```bash
 # Change to your version
@@ -168,7 +169,7 @@ export KVERSION=6.13.6
 sudo cp arch/x86/boot/bzImage /boot/vmlinuz-"$KVERSION"
 
 # Compile & Install
-sudo make -j$(nproc) 
+sudo make -j$(nproc)
 sudo make modules_install
 sudo make install
 
@@ -181,22 +182,22 @@ sudo update-initramfs -c -k "$KVERSION"
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-# Security Audit
+## Security Audit
 
-## Kernel-Hardening-Checker
+### Kernel-Hardening-Checker
 
 ```bash
 kernel-hardening-checker -c kconfigs/gentoo/config
 kernel-hardening-checker -c kconfigs/vanilla/config
 ```
 
-## Spectre-meltdown-checker
+### Spectre-meltdown-checker
 
 ```bash
 sudo ./spectre-meltdown-checker.sh
 ```
 
-# Resources
+## Resources
 
 * [Anssi](https://cyber.gouv.fr/publications/recommandations-de-securite-relatives-un-systeme-gnulinux) [Guide]
 * [ClipOS](https://docs.clip-os.org/clipos/kernel.html#configuration) [Guide]
