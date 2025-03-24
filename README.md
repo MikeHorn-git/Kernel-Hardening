@@ -77,7 +77,8 @@ kconfigs
 
 ### Fragment
 
-Kernel-hardening-checker tool that generates a Kconfig fragment with the security hardening options for the selected microarchitecture following the [README](https://github.com/a13xp0p0v/kernel-hardening-checker#generating-a-kconfig-fragment-with-the-security-hardening-options)
+Kernel-hardening-checker tool that generates a Kconfig fragment with the security hardening options
+for the selected microarchitecture following the [README](https://github.com/a13xp0p0v/kernel-hardening-checker#generating-a-kconfig-fragment-with-the-security-hardening-options)
 
 ```bash
 kernel-hardening-checker -g X86_64 > fragment-X86_64
