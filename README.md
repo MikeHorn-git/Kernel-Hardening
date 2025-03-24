@@ -193,6 +193,10 @@ kernel-hardening-checker -c kconfigs/vanilla/config
 
 ### Spectre-meltdown-checker
 
+Vulnerability/mitigation checker for Linux & BSD.
+'For Linux systems, the tool will detect mitigations, including backported non-vanilla patches,
+regardless of the advertised kernel version number and the distribution.' [Source](https://github.com/speed47/spectre-meltdown-checker)
+
 ```bash
 sudo ./spectre-meltdown-checker.sh
 ```
