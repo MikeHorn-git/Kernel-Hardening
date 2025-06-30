@@ -7,16 +7,16 @@
 
 ## Table of contents
 
-* [Description](https://github.com/MikeHorn-git/Kernel-Hardening#description)
-* [Blacklist Modules](https://github.com/MikeHorn-git/Kernel-Hardening#blacklist-modules-100)
-* [GRUB Parameters](https://github.com/MikeHorn-git/Kernel-Hardening#grub-parameters-25)
-* [Kernel Parameters](https://github.com/MikeHorn-git/Kernel-Hardening#kernel-parameters-50)
-* [Installation Script](https://github.com/MikeHorn-git/Kernel-Hardening#installation-script)
-* [Kconfigs](https://github.com/MikeHorn-git/Kernel-Hardening#kconfigs)
-* [Compile Kernel](https://github.com/MikeHorn-git/Kernel-Hardening#compile-kernel)
-* [Kernel Installation](https://github.com/MikeHorn-git/Kernel-Hardening#kernel-installation)
-* [Security Audit](https://github.com/MikeHorn-git/Kernel-Hardening#security-audit)
-* [Resources](https://github.com/MikeHorn-git/Kernel-Hardening#resources)
+- [Description](https://github.com/MikeHorn-git/Kernel-Hardening#description)
+- [Blacklist Modules](https://github.com/MikeHorn-git/Kernel-Hardening#blacklist-modules-100)
+- [GRUB Parameters](https://github.com/MikeHorn-git/Kernel-Hardening#grub-parameters-25)
+- [Kernel Parameters](https://github.com/MikeHorn-git/Kernel-Hardening#kernel-parameters-50)
+- [Installation Script](https://github.com/MikeHorn-git/Kernel-Hardening#installation-script)
+- [Kconfigs](https://github.com/MikeHorn-git/Kernel-Hardening#kconfigs)
+- [Compile Kernel](https://github.com/MikeHorn-git/Kernel-Hardening#compile-kernel)
+- [Kernel Installation](https://github.com/MikeHorn-git/Kernel-Hardening#kernel-installation)
+- [Security Audit](https://github.com/MikeHorn-git/Kernel-Hardening#security-audit)
+- [Resources](https://github.com/MikeHorn-git/Kernel-Hardening#resources)
 
 ## Description
 
@@ -24,37 +24,37 @@ Kernel kconfigs files with hardening in mind.
 
 ## Blacklist Modules (+100)
 
-* Driver
-* Filesystem
-* Graphics
-* Input devices
-* Network
-* Storage
+- Driver
+- Filesystem
+- Graphics
+- Input devices
+- Network
+- Storage
 
 These kernel modules blacklisted are stored in conf/blacklist.conf
 
 ## GRUB Parameters (25)
 
-* Debugging and Diagnostics
-* Randomness
-* Security features
-* Vulnerability mitigation
+- Debugging and Diagnostics
+- Randomness
+- Security features
+- Vulnerability mitigation
 
 These GRUB paramaters are stored in conf/grub.txt
 
 ## Kernel Parameters (+50)
 
-* FileSystem
-* Kernel
-* Network
+- FileSystem
+- Kernel
+- Network
 
 These kernel parameters are present in conf/sysctl.conf
 
 ## Installation Script
 
-* Add GRUB entries
-* Copy blacklist.conf
-* Copy sysctl.conf
+- Add GRUB entries
+- Copy blacklist.conf
+- Copy sysctl.conf
 
 ```bash
 # Backup your files before running
@@ -204,13 +204,13 @@ sudo ./spectre-meltdown-checker.sh
 
 ## Resources
 
-* [Anssi](https://cyber.gouv.fr/publications/recommandations-de-securite-relatives-un-systeme-gnulinux) [Guide]
-* [ClipOS](https://docs.clip-os.org/clipos/kernel.html#configuration) [Guide]
-* [Kernel.org](https://www.kernel.org/doc/html/latest/admin-guide/kernel-parameters.html) [Guide]
-* [Kernel-Hardening-Checker](https://github.com/a13xp0p0v/kernel-hardening-checker) [Tool]
-* [Kernel_Self_Protection_Project](https://kernsec.org/wiki/index.php/Kernel_Self_Protection_Project/Recommended_Settings) [Guide]
-* [Kicksecure](https://github.com/Kicksecure) [Guide]
-* [Linux-Hardened](https://github.com/anthraxx/linux-hardened) [Implementation]
-* [lwn.net](https://lwn.net/) [Logo]
-* [Madaidans](https://madaidans-insecurities.github.io/guides/linux-hardening.html#kernel) [Guide]
-* [spectre-meltdown-checker](https://github.com/speed47/spectre-meltdown-checker) [Tool]
+- [Anssi](https://cyber.gouv.fr/publications/recommandations-de-securite-relatives-un-systeme-gnulinux) [Guide]
+- [ClipOS](https://docs.clip-os.org/clipos/kernel.html#configuration) [Guide]
+- [Kernel.org](https://www.kernel.org/doc/html/latest/admin-guide/kernel-parameters.html) [Guide]
+- [Kernel-Hardening-Checker](https://github.com/a13xp0p0v/kernel-hardening-checker) [Tool]
+- [Kernel_Self_Protection_Project](https://kernsec.org/wiki/index.php/Kernel_Self_Protection_Project/Recommended_Settings) [Guide]
+- [Kicksecure](https://github.com/Kicksecure) [Guide]
+- [Linux-Hardened](https://github.com/anthraxx/linux-hardened) [Implementation]
+- [lwn.net](https://lwn.net/) [Logo]
+- [Madaidans](https://madaidans-insecurities.github.io/guides/linux-hardening.html#kernel) [Guide]
+- [spectre-meltdown-checker](https://github.com/speed47/spectre-meltdown-checker) [Tool]
